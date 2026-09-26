@@ -1,0 +1,42 @@
+.result-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 12px;
+  padding: 0 2px;
+}
+
+.result-count {
+  font-size: 12.5px;
+  color: var(--text-muted);
+}
+
+.result-count strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.result-totals {
+  display: flex;
+  gap: 16px;
+  font-size: 12.5px;
+  color: var(--text-muted);
+}
+
+.result-totals strong {
+  margin-left: 5px;
+  font-weight: 600;
+}
+
+.transactions-page .card-body-flush {
+  padding: 8px 4px;
+}
+
+@media (max-width: 560px) {
+  .result-totals {
+    gap: 12px;
+    font-size: 12px;
+  }
+}

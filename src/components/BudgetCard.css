@@ -1,0 +1,124 @@
+.budget-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.budget-body {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding-bottom: 16px;
+}
+
+.budget-ring {
+  position: relative;
+  width: 116px;
+  height: 116px;
+  flex-shrink: 0;
+}
+
+.budget-ring svg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.ring-track,
+.ring-value {
+  fill: none;
+  stroke-width: 10;
+}
+
+.ring-track {
+  stroke: var(--surface-sunken);
+}
+
+.ring-value {
+  stroke: var(--income);
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.7s var(--ease), stroke 0.3s var(--ease);
+}
+
+.state-warning .ring-value {
+  stroke: var(--warning);
+}
+
+.state-over .ring-value {
+  stroke: var(--expense);
+}
+
+.ring-center {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-content: center;
+  text-align: center;
+}
+
+.ring-percent {
+  font-size: 21px;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+}
+
+.ring-caption {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.budget-facts {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  flex: 1;
+  min-width: 0;
+}
+
+.budget-facts dt {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.budget-facts dd {
+  margin: 3px 0 0;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.budget-note {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: auto;
+  padding: 11px 20px;
+  border-top: 1px solid var(--border);
+  font-size: 12.5px;
+  color: var(--text-secondary);
+}
+
+.budget-note svg {
+  color: var(--text-muted);
+}
+
+.state-over .budget-note {
+  background: var(--expense-soft);
+  color: var(--expense);
+  border-top-color: transparent;
+}
+
+.state-over .budget-note svg {
+  color: inherit;
+}
+
+.budget-empty {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.55;
+}

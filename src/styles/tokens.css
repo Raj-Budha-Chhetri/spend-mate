@@ -1,0 +1,121 @@
+/*
+ * Design tokens.
+ * Every colour is declared once here and referenced by variable everywhere
+ * else, so the dark theme is a single re-declaration instead of a second
+ * stylesheet.
+ */
+
+:root {
+  /* Warm neutral paper palette */
+  --bg: #f7f6f3;
+  --bg-inset: #efeee9;
+  --surface: #ffffff;
+  --surface-hover: #faf9f7;
+  --surface-sunken: #f4f3f0;
+
+  --border: #e4e2dc;
+  --border-strong: #d4d1c9;
+
+  --text: #1c1b18;
+  --text-secondary: #57544d;
+  --text-muted: #8b877e;
+
+  /* Ink is the primary action colour: high contrast, no brand gradient */
+  --ink: #1c1b18;
+  --ink-hover: #322f2a;
+  --on-ink: #fbfaf8;
+
+  --income: #2f7d5d;
+  --income-soft: #e4f1ea;
+  --expense: #c0553f;
+  --expense-soft: #fbe9e4;
+  --warning: #b3761d;
+  --warning-soft: #fbf0dd;
+  --accent: #3f6ea8;
+  --accent-soft: #e6eef8;
+
+  /* Category ramp — muted, evenly spaced hues that survive both themes */
+  --cat-1: #4f7cac;
+  --cat-2: #c0553f;
+  --cat-3: #2f7d5d;
+  --cat-4: #b3761d;
+  --cat-5: #7a5ba6;
+  --cat-6: #3f8d92;
+  --cat-7: #a84f74;
+  --cat-8: #6b7280;
+
+  /* Chart ink is tuned separately from UI ink: these two are checked for
+     colour-vision separation against each other and the chart surface, which
+     the softer interface green/red do not pass on their own. */
+  --chart-income: #5bb98c;
+  --chart-expense: #9c3d24;
+  --chart-grid: #ebe9e4;
+  --chart-axis: #8b877e;
+
+  --radius-sm: 6px;
+  --radius: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 20px;
+
+  --shadow-xs: 0 1px 2px rgba(28, 27, 24, 0.05);
+  --shadow-sm: 0 1px 3px rgba(28, 27, 24, 0.07), 0 1px 2px rgba(28, 27, 24, 0.04);
+  --shadow-md: 0 4px 16px -4px rgba(28, 27, 24, 0.12), 0 2px 6px -2px rgba(28, 27, 24, 0.06);
+  --shadow-lg: 0 24px 48px -16px rgba(28, 27, 24, 0.22), 0 8px 16px -8px rgba(28, 27, 24, 0.1);
+
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  --ease: cubic-bezier(0.32, 0.72, 0, 1);
+  /* Upper bound on the reading column. Wide enough that a 1080p screen is
+     effectively filled edge to edge, capped so an ultra-wide monitor does not
+     stretch a table row to a metre long. */
+  --content-max: 1600px;
+  --sidebar-w: 248px;
+  --topbar-h: 64px;
+}
+
+[data-theme='dark'] {
+  --bg: #121211;
+  --bg-inset: #0d0d0c;
+  --surface: #1a1a18;
+  --surface-hover: #212120;
+  --surface-sunken: #161615;
+
+  --border: #2b2b28;
+  --border-strong: #3a3a36;
+
+  --text: #f2f0ec;
+  --text-secondary: #b5b1a8;
+  --text-muted: #85817a;
+
+  --ink: #f2f0ec;
+  --ink-hover: #ffffff;
+  --on-ink: #171715;
+
+  --income: #6cc094;
+  --income-soft: #1b2e26;
+  --expense: #e89078;
+  --expense-soft: #33211d;
+  --warning: #d9a659;
+  --warning-soft: #302719;
+  --accent: #7fa9dd;
+  --accent-soft: #1b2430;
+
+  --cat-1: #7fa9dd;
+  --cat-2: #e89078;
+  --cat-3: #6cc094;
+  --cat-4: #d9a659;
+  --cat-5: #b294d9;
+  --cat-6: #6cc0c5;
+  --cat-7: #dd8fae;
+  --cat-8: #9ca3af;
+
+  --chart-income: #2ea885;
+  --chart-expense: #b84824;
+  --chart-grid: #262623;
+  --chart-axis: #85817a;
+
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.45), 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 16px -4px rgba(0, 0, 0, 0.55), 0 2px 6px -2px rgba(0, 0, 0, 0.35);
+  --shadow-lg: 0 24px 48px -16px rgba(0, 0, 0, 0.7), 0 8px 16px -8px rgba(0, 0, 0, 0.45);
+}

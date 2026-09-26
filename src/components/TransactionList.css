@@ -1,0 +1,198 @@
+.txn-list {
+  display: flex;
+  flex-direction: column;
+  /* The row layout depends on how much room the list itself has, not on the
+     window: the same list renders full-width on the Transactions page and in a
+     narrow dashboard card. */
+  container-type: inline-size;
+}
+
+.txn-day {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px 7px;
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.txn-day:first-child {
+  padding-top: 4px;
+}
+
+.txn-day-net {
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0;
+  text-transform: none;
+  font-weight: 500;
+  font-size: 12px;
+}
+
+.txn-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px;
+  border-radius: var(--radius);
+  transition: background 0.14s var(--ease);
+}
+
+/* Columns only appear once there is room for them; below this the row falls
+   back to the stacked flex layout above. */
+.txn-category,
+.txn-date {
+  display: none;
+}
+
+@container (min-width: 720px) {
+  .txn-row {
+    display: grid;
+    grid-template-columns:
+      34px minmax(0, 1.3fr) minmax(0, 1fr) 112px minmax(118px, 0.5fr) 62px;
+    gap: 16px;
+  }
+
+  .txn-main .txn-meta {
+    display: none;
+  }
+
+  .txn-category {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 0;
+    font-size: 13px;
+    color: var(--text-secondary);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  /* Date and amount right-align together so the numbers form one column. */
+  .txn-date {
+    display: block;
+    font-size: 12.5px;
+    text-align: right;
+    color: var(--text-muted);
+  }
+
+  .txn-amount {
+    text-align: right;
+  }
+}
+
+.txn-row:hover {
+  background: var(--surface-hover);
+}
+
+.txn-glyph {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--glyph-color) 13%, transparent);
+  color: var(--glyph-color);
+}
+
+.txn-main {
+  flex: 1;
+  min-width: 0;
+}
+
+.txn-description {
+  font-size: 13.5px;
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.txn-meta {
+  margin-top: 1px;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.txn-amount {
+  font-size: 13.5px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.txn-actions {
+  display: flex;
+  gap: 2px;
+  width: 62px;
+  margin-right: -6px;
+  opacity: 0;
+  transition: opacity 0.14s var(--ease);
+}
+
+.txn-row:hover .txn-actions,
+.txn-actions:focus-within {
+  opacity: 1;
+}
+
+.txn-delete:hover {
+  color: var(--expense);
+  background: var(--expense-soft);
+}
+
+/* Touch devices have no hover, so the row actions stay visible there. */
+@media (hover: none) {
+  .txn-actions {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 560px) {
+  .txn-row {
+    gap: 10px;
+    padding: 10px 12px;
+  }
+
+  .txn-actions {
+    width: 58px;
+    margin-right: -4px;
+  }
+
+  .txn-amount {
+    font-size: 13px;
+  }
+
+  .txn-day {
+    padding: 14px 12px 7px;
+  }
+}
+
+/* ---------- Loading skeleton ---------- */
+
+.skeleton-glyph {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  flex-shrink: 0;
+}
+
+.skeleton-line {
+  display: block;
+  height: 11px;
+  border-radius: 4px;
+}
+
+.skeleton-line-sm {
+  width: 30%;
+  height: 9px;
+  margin-top: 6px;
+}
+
+.skeleton-amount {
+  width: 62px;
+  height: 12px;
+  border-radius: 4px;
+}

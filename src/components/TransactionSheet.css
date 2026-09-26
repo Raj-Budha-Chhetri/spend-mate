@@ -1,0 +1,93 @@
+.txn-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-top: 2px;
+}
+
+.type-switch button {
+  gap: 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.type-switch button:first-child[aria-pressed='true'] {
+  color: var(--expense);
+}
+
+.type-switch button:last-child[aria-pressed='true'] {
+  color: var(--income);
+}
+
+/* The amount is the field people come here to fill in, so it gets the most
+   typographic weight of anything in the dialog. */
+.amount-field {
+  height: 52px;
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.amount-input .currency-prefix {
+  font-size: 16px;
+}
+
+.amount-input:has(.amount-field) .currency-prefix {
+  left: 14px;
+}
+
+.amount-input:has(.amount-field) .amount-field {
+  padding-left: 36px;
+}
+
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 6px;
+}
+
+.category-chip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 38px;
+  padding: 0 10px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  font-size: 13px;
+  color: var(--text-secondary);
+  text-align: left;
+  transition: border-color 0.15s var(--ease), background 0.15s var(--ease),
+    color 0.15s var(--ease);
+}
+
+.category-chip svg {
+  color: var(--chip-color);
+}
+
+.category-chip span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.category-chip:hover {
+  background: var(--surface-hover);
+  border-color: var(--border-strong);
+  color: var(--text);
+}
+
+.category-chip.is-selected {
+  border-color: var(--chip-color);
+  background: color-mix(in srgb, var(--chip-color) 9%, var(--surface));
+  color: var(--text);
+  font-weight: 500;
+}
+
+@media (max-width: 560px) {
+  .category-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
